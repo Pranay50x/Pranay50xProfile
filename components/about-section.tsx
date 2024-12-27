@@ -1,0 +1,104 @@
+'use client'
+
+import { useState } from 'react'
+import Image from 'next/image'
+import { Code, Headphones, Ship } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+export function AboutSection() {
+  const [activeIcon, setActiveIcon] = useState<string | null>(null)
+
+  const iconVariants = {
+    hover: { scale: 1.2, rotate: 360, transition: { duration: 0.3 } },
+  }
+
+  const interestItems = [
+    { icon: Code, label: 'Web Dev', color: 'text-blue-400', description: 'Building the future, one line at a time' },
+    { icon: Headphones, label: 'Music', color: 'text-purple-400', description: 'Coding to the rhythm of innovation' },
+    { icon: Ship, label: 'One Piece', color: 'text-yellow-400', description: 'Finding the One Piece of perfect code' },
+  ]
+
+  return (
+    <section id="about" className="container mx-auto px-4 py-16">
+      <motion.h2 
+        className="text-3xl font-bold mb-12 text-center gradient-text"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        About Me
+      </motion.h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <motion.div 
+          className="space-y-6"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <p className="text-lg text-green-300 transition-all duration-300 hover:text-green-400">
+            Hello! I'm Pranay, a passionate developer with a drive for innovation and continuous learning. My journey in tech has been an exciting blend of web development, machine learning, and mobile app creation.
+          </p>
+          <p className="text-lg text-green-300 transition-all duration-300 hover:text-green-400">
+            I've delved into the world of AI, crafting chatbots and fine-tuning them with RAG (Retrieval-Augmented Generation). My experience spans from building robust backend systems with Flask to creating engaging mobile experiences using Flutter.
+          </p>
+          <p className="text-lg text-green-300 transition-all duration-300 hover:text-green-400">
+            When I'm not immersed in code, you'll find me lost in the rhythms of music or sailing the Grand Line with the Straw Hat crew in One Piece. I believe in the power of technology to create positive change and am always excited to take on new challenges, just like Luffy's quest to become the Pirate King!
+          </p>
+        </motion.div>
+        <motion.div 
+          className="space-y-8"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <motion.div 
+            className="relative h-64 w-64 mx-auto"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src="/luffy.svg"
+              alt="Pranay's profile"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-full"
+            />
+          </motion.div>
+          <div className="grid grid-cols-3 gap-4 text-center">
+            {interestItems.map((item, index) => (
+              <motion.div 
+                key={item.label}
+                className="p-4 bg-gray-800 rounded-lg cursor-pointer transition-all duration-300 hover:bg-gray-700"
+                whileHover="hover"
+                onHoverStart={() => setActiveIcon(item.label)}
+                onHoverEnd={() => setActiveIcon(null)}
+                onClick={() => setActiveIcon(activeIcon === item.label ? null : item.label)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+              >
+                <motion.div variants={iconVariants}>
+                  <item.icon className={`h-8 w-8 mx-auto mb-2 ${item.color}`} />
+                </motion.div>
+                <h3 className="font-semibold text-green-300">
+                  {item.label}
+                </h3>
+                {activeIcon === item.label && (
+                  <motion.p 
+                    className="mt-2 text-xs text-gray-400"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {item.description}
+                  </motion.p>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
