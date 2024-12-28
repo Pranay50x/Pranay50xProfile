@@ -77,86 +77,86 @@ export default function ProjectsSection() {
   }, [handleKeyPress])
 
   return (
-    <section id="projects" className="container mx-auto px-4 py-16">
-      <h2 className="text-3xl font-bold mb-8 text-center gradient-text">Projects</h2>
-      <div className="flex justify-center">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="w-full max-w-3xl"
-          >
-            <Card className="bg-gray-900 
-            text-green-400 font-mono shadow-lg
-            overflow-hidden
-            transition-shadow 
-            ring-1 
-            ring-green-400 
-            dark:ring-gray-700 
-            hover:shadow-[0_0_12px_3px_rgba(59,130,246,0.4)]   /* Glow in light mode (blue-500) */
-            dark:hover:shadow-[0_0_12px_3px_rgba(3,252,144,0.6)] /* Glow in dark mode (blue-400) */">
-              <CardContent className="p-8">
-                <div className="flex items-center mb-4">
-                  <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div className="mb-4">
-                  <span className="text-blue-400">pranay50x@projects</span>
-                  <span className="text-purple-400">:~$</span> {typedCommand}
-                  {isTyping && <span className="animate-blink">|</span>}
-                </div>
-                <h3 className="text-2xl font-semibold mb-4">{projects[currentIndex].title}</h3>
-                <p className="mb-6 text-lg">
-                  {showDetails ? projects[currentIndex].longDescription : projects[currentIndex].description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {projects[currentIndex].tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-gray-800 text-green-400 rounded-md text-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex justify-between items-center">
-                  <div className="text-sm text-gray-500">
-                    Press Enter to {showDetails ? 'hide' : 'view'} project details...
+    <section id="projects" className="bg-gray-50 dark:bg-navy-900">
+      <div className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-500 dark:to-rose-600">
+          Projects
+        </h2>
+        <div className="flex justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="w-full max-w-3xl"
+            >
+              <Card className="bg-white dark:bg-gray-900 text-gray-800 dark:text-green-400 font-mono shadow-lg overflow-hidden transition-shadow ring-1
+               ring-gray-200 dark:ring-gray-700 hover:shadow-[0_0_12px_3px_rgba(0,0,0,0.4)] dark:hover:shadow-[0_0_12px_3px_rgba(3,252,144,0.6)]">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-4">
+                    <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="bg-gray-800 text-green-400 hover:bg-gray-700"
-                    onClick={() => window.open(projects[currentIndex].github, '_blank')}
-                  >
-                    <Github className="mr-2 h-4 w-4" />
-                    View on GitHub
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-      <div className="mt-8 flex justify-center space-x-2">
-        {projects.map((_, index) => (
-          <button
-            key={index}
-            className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? 'bg-green-500' : 'bg-gray-600'
-            }`}
-            onClick={() => {
-              setCurrentIndex(index)
-              setTypedCommand('')
-              setIsTyping(true)
-              setShowDetails(false)
-            }}
-          />
-        ))}
+                  <div className="mb-4">
+                    <span className="text-blue-600 dark:text-blue-400">pranay50x@projects</span>
+                    <span className="text-purple-600 dark:text-purple-400">:~$</span> {typedCommand}
+                    {isTyping && <span className="animate-pulse">|</span>}
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-green-400">{projects[currentIndex].title}</h3>
+                  <p className="mb-6 text-lg text-gray-700 dark:text-green-300">
+                    {showDetails ? projects[currentIndex].longDescription : projects[currentIndex].description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {projects[currentIndex].tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-green-400 rounded-md text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                      Press Enter to {showDetails ? 'hide' : 'view'} project details...
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-green-400 hover:bg-gray-200 dark:hover:bg-gray-700 border-gray-300 dark:border-gray-600"
+                      onClick={() => window.open(projects[currentIndex].github, '_blank')}
+                    >
+                      <Github className="mr-2 h-4 w-4" />
+                      View on GitHub
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <div className="mt-8 flex justify-center space-x-2">
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                index === currentIndex 
+                  ? 'bg-orange-500 dark:bg-green-500' 
+                  : 'bg-gray-300 dark:bg-gray-600 hover:bg-orange-300 dark:hover:bg-green-700'
+              }`}
+              onClick={() => {
+                setCurrentIndex(index)
+                setTypedCommand('')
+                setIsTyping(true)
+                setShowDetails(false)
+              }}
+              aria-label={`Switch to ${projects[index].title}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   )

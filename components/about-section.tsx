@@ -13,15 +13,16 @@ export function AboutSection() {
   }
 
   const interestItems = [
-    { icon: Code, label: 'Web Dev', color: 'text-blue-400', description: 'Building the future, one line at a time' },
-    { icon: Headphones, label: 'Music', color: 'text-purple-400', description: 'Coding to the rhythm of innovation' },
-    { icon: Ship, label: 'One Piece', color: 'text-yellow-400', description: 'Finding the One Piece of perfect code' },
+    { icon: Code, label: 'Web Dev', color: 'text-blue-400 dark:text-blue-300', description: 'Building the future, one line at a time' },
+    { icon: Headphones, label: 'Music', color: 'text-purple-400 dark:text-purple-300', description: 'Coding to the rhythm of innovation' },
+    { icon: Ship, label: 'One Piece', color: 'text-yellow-400 dark:text-yellow-300', description: 'Finding the One Piece of perfect code' },
   ]
 
   return (
+    <div className='bg-gray-50 dark:bg-navy-900'>
     <section id="about" className="container mx-auto px-4 py-16">
       <motion.h2 
-        className="text-3xl font-bold mb-12 text-center gradient-text"
+        className="text-3xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-500 dark:to-rose-600"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -35,14 +36,14 @@ export function AboutSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <p className="text-lg text-green-300 transition-all duration-300 hover:text-green-400">
-            Hello! I'm Pranay, a passionate developer with a drive for innovation and continuous learning. My journey in tech has been an exciting blend of web development, machine learning, and mobile app creation.
+          <p className="text-lg text-gray-700 dark:text-green-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-green-400">
+            Hello! I&apos;m Pranay, a passionate developer with a drive for innovation and continuous learning. My journey in tech has been an exciting blend of web development, machine learning, and mobile app creation.
           </p>
-          <p className="text-lg text-green-300 transition-all duration-300 hover:text-green-400">
-            I've delved into the world of AI, crafting chatbots and fine-tuning them with RAG (Retrieval-Augmented Generation). My experience spans from building robust backend systems with Flask to creating engaging mobile experiences using Flutter.
+          <p className="text-lg text-gray-700 dark:text-green-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-green-400">
+            I&apos;ve delved into the world of AI, crafting chatbots and fine-tuning them with RAG (Retrieval-Augmented Generation). My experience spans from building robust backend systems with Flask to creating engaging mobile experiences using Flutter.
           </p>
-          <p className="text-lg text-green-300 transition-all duration-300 hover:text-green-400">
-            When I'm not immersed in code, you'll find me lost in the rhythms of music or sailing the Grand Line with the Straw Hat crew in One Piece. I believe in the power of technology to create positive change and am always excited to take on new challenges, just like Luffy's quest to become the Pirate King!
+          <p className="text-lg text-gray-700 dark:text-green-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-green-400">
+            When I&apos;m not immersed in code, you&apos;ll find me lost in the rhythms of music or sailing the Grand Line with the Straw Hat crew in One Piece. I believe in the power of technology to create positive change and am always excited to take on new challenges, just like Luffy&apos;s quest to become the Pirate King!
           </p>
         </motion.div>
         <motion.div 
@@ -68,7 +69,7 @@ export function AboutSection() {
             {interestItems.map((item, index) => (
               <motion.div 
                 key={item.label}
-                className="p-4 bg-gray-800 rounded-lg cursor-pointer transition-all duration-300 hover:bg-gray-700"
+                className="p-4 bg-white dark:bg-gray-800 rounded-lg cursor-pointer transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 shadow-md"
                 whileHover="hover"
                 onHoverStart={() => setActiveIcon(item.label)}
                 onHoverEnd={() => setActiveIcon(null)}
@@ -80,12 +81,12 @@ export function AboutSection() {
                 <motion.div variants={iconVariants}>
                   <item.icon className={`h-8 w-8 mx-auto mb-2 ${item.color}`} />
                 </motion.div>
-                <h3 className="font-semibold text-green-300">
+                <h3 className="font-semibold text-gray-800 dark:text-green-300">
                   {item.label}
                 </h3>
                 {activeIcon === item.label && (
                   <motion.p 
-                    className="mt-2 text-xs text-gray-400"
+                    className="mt-2 text-xs text-gray-600 dark:text-gray-400"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     transition={{ duration: 0.2 }}
@@ -99,6 +100,7 @@ export function AboutSection() {
         </motion.div>
       </div>
     </section>
+    </div>
   )
 }
 
