@@ -57,7 +57,7 @@ export function ContactSection() {
           break
         case 'email':
           setUserInfo(prev => ({ ...prev, email: input }))
-          setMessages(prev => [...prev, { type: 'ai', content: "Perfect! Now, what message would you like to send to Pranay?" }])
+          setMessages(prev => [...prev, { type: 'ai', content: "Perfect! Now, what message would you like to send to Pranay?. You can contact Pranay on Linkedin please click the button below." }])
           setCurrentStep('message')
           break
         case 'message':
@@ -89,7 +89,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="bg-gray-50 dark:bg-navy-900">
       <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 dark:from-green-400 dark:to-green-600">
+        <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-400 dark:to-rose-600">
           Get in Touch
         </h2>
         <div className="max-w-md mx-auto bg-white dark:bg-navy-800 rounded-lg shadow-lg overflow-hidden md:max-w-lg lg:max-w-xl">

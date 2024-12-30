@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { Code, Headphones, Ship } from 'lucide-react'
+import { Code, Server, Database } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export function AboutSection() {
@@ -12,10 +12,10 @@ export function AboutSection() {
     hover: { scale: 1.2, rotate: 360, transition: { duration: 0.3 } },
   }
 
-  const interestItems = [
-    { icon: Code, label: 'Web Dev', color: 'text-blue-400 dark:text-blue-300', description: 'Building the future, one line at a time' },
-    { icon: Headphones, label: 'Music', color: 'text-purple-400 dark:text-purple-300', description: 'Coding to the rhythm of innovation' },
-    { icon: Ship, label: 'One Piece', color: 'text-yellow-400 dark:text-yellow-300', description: 'Finding the One Piece of perfect code' },
+  const skillItems = [
+    { icon: Code, label: 'Frontend', color: 'text-blue-400 dark:text-blue-300', description: 'Crafting responsive and intuitive user interfaces' },
+    { icon: Server, label: 'Backend', color: 'text-green-400 dark:text-green-300', description: 'Building robust and scalable server-side solutions' },
+    { icon: Database, label: 'AI & ML', color: 'text-purple-400 dark:text-purple-300', description: 'Implementing intelligent systems and data analysis' },
   ]
 
   return (
@@ -37,13 +37,13 @@ export function AboutSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <p className="text-lg text-gray-700 dark:text-green-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-green-400">
-            Hello! I&apos;m Pranay, a passionate developer with a drive for innovation and continuous learning. My journey in tech has been an exciting blend of web development, machine learning, and mobile app creation.
+            Hello! I'm Pranay, a dedicated full-stack developer with a passion for innovation and continuous learning. My journey in tech has been an exciting blend of web development, machine learning, and mobile app creation.
           </p>
           <p className="text-lg text-gray-700 dark:text-green-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-green-400">
-            I&apos;ve delved into the world of AI, crafting chatbots and fine-tuning them with RAG (Retrieval-Augmented Generation). My experience spans from building robust backend systems with Flask to creating engaging mobile experiences using Flutter.
+            I've delved deep into the world of AI, crafting sophisticated chatbots and fine-tuning them with RAG (Retrieval-Augmented Generation) techniques. My experience spans from building robust backend systems with Flask to creating engaging mobile experiences using Flutter.
           </p>
           <p className="text-lg text-gray-700 dark:text-green-300 transition-all duration-300 hover:text-gray-900 dark:hover:text-green-400">
-            When I&apos;m not immersed in code, you&apos;ll find me lost in the rhythms of music or sailing the Grand Line with the Straw Hat crew in One Piece. I believe in the power of technology to create positive change and am always excited to take on new challenges, just like Luffy&apos;s quest to become the Pirate King!
+            When I'm not immersed in code, I'm exploring new technologies, contributing to open-source projects, or attending tech conferences. I believe in the power of technology to create positive change and am always excited to take on new challenges that push the boundaries of what's possible in software development.
           </p>
         </motion.div>
         <motion.div 
@@ -66,7 +66,7 @@ export function AboutSection() {
             />
           </motion.div>
           <div className="grid grid-cols-3 gap-4 text-center">
-            {interestItems.map((item, index) => (
+            {skillItems.map((item, index) => (
               <motion.div 
                 key={item.label}
                 className="p-4 bg-white dark:bg-gray-800 rounded-lg cursor-pointer transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 shadow-md"

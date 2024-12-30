@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Code, Cpu, CupSoda, Trophy, Briefcase, GraduationCap, ChevronRight, ChevronLeft } from 'lucide-react'
+import { Code, Cpu, CupSoda, Trophy, Briefcase, GraduationCap, ChevronRight, ChevronLeft, Medal, MedalIcon } from 'lucide-react'
 
 export function HeroSection() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
@@ -17,8 +17,9 @@ export function HeroSection() {
   ]
 
   const achievements = [
-    { icon: CupSoda, label: 'Winner of wHackiest 2024', description: 'Developed an innovative solution that stood out among fierce competition' },
+    { icon: MedalIcon, label: 'Winner of wHackiest 2024', description: 'Developed an innovative solution that stood out among fierce competition' },
     { icon: Trophy, label: 'SIH 2024 Runners Up', description: 'Recognized for excellence in the Smart India Hackathon, showcasing problem-solving skills' },
+    { icon: Medal, label: 'BIT Inceptra 2024 Winner', description: 'Awarded first prize for an exceptional project that demonstrated creativity and technical skills' },
   ]
 
   const interests = [
@@ -55,31 +56,42 @@ export function HeroSection() {
           >
             <motion.h1 
               className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-500 dark:to-rose-600"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
               Aspiring Tech Enthusiast
             </motion.h1>
             <motion.p 
               className="text-base md:text-lg lg:text-xl mb-8 text-gray-700 dark:text-green-300"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               Passionate about web development and AI, seeking internship opportunities to contribute and grow in the tech industry.
             </motion.p>
             <motion.div 
               className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white dark:bg-green-500 dark:hover:bg-green-600 dark:text-navy-900">
-                <Link href="#projects">View Projects</Link>
+              <Button
+                asChild
+                className="bg-orange-500 hover:bg-orange-600 text-white dark:bg-green-500 dark:hover:bg-green-600 dark:text-navy-900 transition-colors duration-300"
+              >
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link href="#projects">View Projects</Link>
+                </motion.div>
               </Button>
-              <Button variant="outline" asChild className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500 dark:hover:text-navy-900">
-                <Link href="#contact">Contact Me</Link>
+              <Button
+                variant="outline"
+                asChild
+                className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500 dark:hover:text-navy-900 transition-colors duration-300"
+              >
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link href="#contact">Contact Me</Link>
+                </motion.div>
               </Button>
             </motion.div>
           </motion.div>
@@ -97,23 +109,31 @@ export function HeroSection() {
                 <motion.div
                   key={skill.label}
                   className="bg-white dark:bg-navy-800 p-6 rounded-lg cursor-pointer relative overflow-hidden group shadow-md"
-                  whileHover={{ scale: 1.02 }}
-                  onHoverStart={() => setHoveredSkill(skill.label)}
-                  onHoverEnd={() => setHoveredSkill(null)}
+                  whileHover={{ 
+                    scale: 1.03, 
+                    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + index * 0.2, duration: 0.6 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
-                  <skill.icon className="w-10 h-10 md:w-12 md:h-12 text-orange-500 dark:text-rose-500 mb-4" />
-                  <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-green-300">{skill.label}</h3>
-                  <motion.p
-                    className="text-sm text-gray-600 dark:text-gray-400"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: hoveredSkill === skill.label ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
+                  <motion.div
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
                   >
+                    <skill.icon className="w-10 h-10 md:w-12 md:h-12 text-orange-500 dark:text-rose-500 mb-4" />
+                  </motion.div>
+                  <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-green-300">{skill.label}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
                     {skill.description}
-                  </motion.p>
+                  </p>
+                  <motion.div
+                    className="absolute inset-0 bg-orange-500 dark:bg-green-500 opacity-0"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 0.05 }}
+                    transition={{ duration: 0.2 }}
+                  />
                 </motion.div>
               ))}
             </div>
@@ -124,25 +144,29 @@ export function HeroSection() {
               whileHover={{ scale: 1.02 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
             >
               <h3 className="text-xl md:text-2xl font-semibold mb-4 text-gray-900 dark:text-green-300">Achievements</h3>
               <div className="relative px-8">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentAchievementIndex}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
                     className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-4"
                   >
-                    <div className="flex-shrink-0">
+                    <motion.div 
+                      className="flex-shrink-0"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
                       {achievements[currentAchievementIndex].icon && (() => {
                         const Icon = achievements[currentAchievementIndex].icon;
                         return <Icon className="w-10 h-10 md:w-12 md:h-12 text-orange-500 dark:text-rose-500" />;
                       })()}
-                    </div>
+                    </motion.div>
                     <div>
                       <h4 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-green-300">
                         {achievements[currentAchievementIndex].label}
@@ -163,25 +187,29 @@ export function HeroSection() {
               whileHover={{ scale: 1.02 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.6 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
             >
               <h3 className="text-xl md:text-2xl font-semibold mb-4 text-gray-900 dark:text-green-300">Interests & Goals</h3>
               <div className="relative px-8">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentInterestIndex}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
                     className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-4"
                   >
-                    <div className="flex-shrink-0">
+                    <motion.div 
+                      className="flex-shrink-0"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
                       {interests[currentInterestIndex].icon && (() => {
                         const Icon = interests[currentInterestIndex].icon;
                         return <Icon className="w-10 h-10 md:w-12 md:h-12 text-orange-500 dark:text-rose-500" />;
                       })()}
-                    </div>
+                    </motion.div>
                     <div>
                       <h4 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-green-300">
                         {interests[currentInterestIndex].label}
@@ -224,3 +252,4 @@ function NavigationButtons({ onPrev, onNext }: { onPrev: () => void; onNext: () 
     </>
   )
 }
+

@@ -3,12 +3,14 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
-import { SiPython, SiJavascript, SiCplusplus, SiReact, SiNodedotjs, SiTailwindcss, SiDart, SiFlutter, SiFlask, SiTensorflow } from 'react-icons/si'
+import { SiPython, SiJavascript, SiCplusplus, SiReact, SiNodedotjs, SiTailwindcss, SiDart, SiFlutter, SiFlask, SiTensorflow, SiMongodb, SiFirebase, SiNextdotjs, SiTypescript } from 'react-icons/si'
 import React from 'react'
 
 const tools = [
+  {name: 'Next.js', icon: SiNextdotjs, color: 'text-black dark:text-white'},
+  { name: 'MongoDB', icon: SiMongodb, color: 'text-green-600 dark:text-green-400' },
   { name: 'Python', icon: SiPython, color: 'text-blue-600 dark:text-blue-400' },
-  { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-600 dark:text-yellow-400' },
+  // { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-600 dark:text-yellow-400' },
   { name: 'C++', icon: SiCplusplus, color: 'text-blue-700 dark:text-blue-500' },
   { name: 'React', icon: SiReact, color: 'text-cyan-600 dark:text-cyan-400' },
   { name: 'Node.js', icon: SiNodedotjs, color: 'text-green-700 dark:text-green-500' },
@@ -16,7 +18,10 @@ const tools = [
   { name: 'Dart', icon: SiDart, color: 'text-blue-600 dark:text-blue-400' },
   { name: 'Flutter', icon: SiFlutter, color: 'text-cyan-500 dark:text-cyan-300' },
   { name: 'Flask', icon: SiFlask, color: 'text-gray-600 dark:text-gray-400' },
-  { name: 'Machine Learning', icon: SiTensorflow, color: 'text-orange-500 dark:text-orange-500' },
+  { name: 'Tensorflow', icon: SiTensorflow, color: 'text-orange-500 dark:text-orange-500' },
+  { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600 dark:text-blue-400' },
+  {name: 'Firebase', icon: SiFirebase, color: 'text-yellow-600 dark:text-yellow-400'},
+ 
 ]
 
 export default function ToolsSection() {
@@ -50,7 +55,7 @@ export default function ToolsSection() {
                   {React.createElement(tools[currentIndex].icon, { 
                     className: `text-6xl ${tools[currentIndex].color} mb-4` 
                   })}
-                  <h3 className="text-xl font-semibold text-gray-800 dark:text-green-400">
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
                     {tools[currentIndex].name}
                   </h3>
                 </CardContent>
