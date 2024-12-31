@@ -14,7 +14,7 @@ export function Footer() {
             <FooterLink href="#projects">Projects</FooterLink>
             <FooterLink href="#tools">Tools</FooterLink>
             <FooterLink href="#contact">Contact</FooterLink>
-            <Analytics/>
+           
           </nav>
         </div>
       </div>

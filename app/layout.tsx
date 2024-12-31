@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
-// import Background3D from '@/components/Background3D'
+import { Analytics } from "@vercel/analytics/react"
 
 import './globals.css'
 
@@ -29,6 +29,7 @@ export default function RootLayout({
             <main className="flex-grow pt-16">{children}</main>
             <Footer />
           </div>
+          <Analytics/>
         </ThemeProvider>
       </body>
     </html>
