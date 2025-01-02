@@ -17,8 +17,8 @@ export function HeroSection() {
   ]
 
   const achievements = [
-    { icon: MedalIcon, label: 'Winner of wHackiest 2024', description: 'Developed an innovative solution that stood out among fierce competition' },
-    { icon: Trophy, label: 'SIH 2024 Runners Up', description: 'Recognized for excellence in the Smart India Hackathon, showcasing problem-solving skills' },
+    { icon: MedalIcon, label: 'Winner of wHackiest 2024', description: "Won the first place in CodeRIT's Flagship Event in 2024 " },
+    { icon: Trophy, label: 'SIH 2024 Runners Up', description: 'Ended up as Runners Up for the Smart India Hackathon 2024, recognised for building and showcasing an innovative solution.' },
     { icon: Medal, label: 'BIT Inceptra 2024 Winner', description: 'Awarded first prize for an exceptional project that demonstrated creativity and technical skills' },
   ]
 
