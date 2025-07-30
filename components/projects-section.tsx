@@ -77,7 +77,7 @@ export default function ProjectsSection() {
   }, [handleKeyPress])
 
   return (
-    <section id="projects" className="bg-gray-50 dark:bg-navy-900">
+    <section id="projects" className="bg-transparent">
       <div className="container mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-500 dark:to-rose-600">
           Projects
@@ -92,8 +92,7 @@ export default function ProjectsSection() {
               transition={{ duration: 0.3 }}
               className="w-full max-w-3xl"
             >
-              <Card className="bg-white dark:bg-gray-900 text-gray-800 dark:text-green-400 font-mono shadow-lg overflow-hidden transition-shadow ring-1
-               ring-gray-200 dark:ring-gray-700 hover:shadow-[0_0_12px_3px_rgba(0,0,0,0.4)] dark:hover:shadow-[0_0_12px_3px_rgba(3,252,144,0.6)]">
+              <Card className="glass-card text-gray-800 dark:text-green-400 font-mono overflow-hidden">
                 <CardContent className="p-8">
                   <div className="flex items-center mb-4">
                     <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>

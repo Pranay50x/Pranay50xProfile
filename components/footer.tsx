@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/react"
 
 export function Footer() {
   return (
-    <footer className="bg-gray-100 dark:bg-navy-800 py-6">
+    <footer className="bg-transparent py-6">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-600 dark:text-green-300 mb-4 md:mb-0">
@@ -32,4 +32,3 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
     </Link>
   )
 }
-

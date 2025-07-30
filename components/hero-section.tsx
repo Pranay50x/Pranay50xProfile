@@ -44,7 +44,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="pt-24 min-h-screen w-full bg-gray-50 dark:bg-navy-900">
+    <section className="pt-24 min-h-screen w-full bg-transpare">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
           {/* Left Column */}
@@ -108,8 +108,7 @@ export function HeroSection() {
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.label}
-                  className="bg-white dark:bg-navy-800 p-6 rounded-lg cursor-pointer relative overflow-hidden group shadow-md"
-                  whileHover={{ 
+className="glass-card p-6 cursor-pointer relative overflow-hidden group"                  whileHover={{ 
                     scale: 1.03, 
                     boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
                   }}
@@ -140,8 +139,7 @@ export function HeroSection() {
 
             {/* Achievements Section */}
             <motion.div
-              className="bg-white dark:bg-navy-800 p-6 rounded-lg relative overflow-hidden shadow-md"
-              whileHover={{ scale: 1.02 }}
+className="glass-card p-6 relative overflow-hidden"              whileHover={{ scale: 1.02 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
@@ -183,8 +181,7 @@ export function HeroSection() {
 
             {/* Interests Section */}
             <motion.div
-              className="bg-white dark:bg-navy-800 p-6 rounded-lg relative overflow-hidden shadow-md"
-              whileHover={{ scale: 1.02 }}
+className="glass-card p-6 relative overflow-hidden"              whileHover={{ scale: 1.02 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}

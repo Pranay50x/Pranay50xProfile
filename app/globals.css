@@ -54,8 +54,31 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-transparent text-foreground;
   }
+}
+
+.background-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.content-container {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.section-bg-transparent {
+  background-color: transparent !important;
+}
+
+.glass-card {
+  @apply bg-white/10 dark:bg-black/10 backdrop-blur-lg border border-white/20 dark:border-white/10 rounded-xl shadow-lg;
 }
 
 .gradient-text {
@@ -86,18 +109,69 @@
   50% { transform: translateY(-10px); }
 }
 
-.background-container {
+@keyframes moveGrid {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(60px, 60px);
+  }
+}
+
+@keyframes moveGridReverse {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-40px, -40px);
+  }
+}
+
+.animate-moveGrid {
+  animation: moveGrid 20s linear infinite;
+}
+
+.animate-moveGridReverse {
+  animation: moveGridReverse 15s linear infinite;
+}
+
+/* ... at the end of the file ... */
+
+/* ▼▼▼ REPLACE your old cursor styles with THESE ▼▼▼ */
+
+/* Hide the default system cursor */
+body, a, button {
+  cursor: none;
+}
+
+.cursor-dot {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.2; /* Adjust this value to make the background more or less visible */
+  top: -4px;  /* Offset by half of width/height */
+  left: -4px; /* Offset by half of width/height */
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
 }
 
-.content-container {
-  position: relative;
-  z-index: 1;
+.cursor-outline {
+  position: fixed;
+  top: -20px;  /* Offset by half of width/height */
+  left: -20px; /* Offset by half of width/height */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-width: 2px;
+  pointer-events: none;
+  z-index: 9999;
+  /* Keep the transition only for the hover effect (scale and opacity) */
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 }
 
+.cursor-hover {
+  transform: scale(1.5);
+  opacity: 0.5;
+}
+
+/* ▲▲▲ REPLACE your old cursor styles with THESE ▲▲▲ */

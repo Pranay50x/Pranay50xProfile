@@ -87,12 +87,12 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="bg-gray-50 dark:bg-navy-900">
+    <section id="contact" className="bg-transparent">
       <div className="container mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-400 dark:to-rose-600">
           Get in Touch
         </h2>
-        <div className="max-w-md mx-auto bg-white dark:bg-navy-800 rounded-lg shadow-lg overflow-hidden md:max-w-lg lg:max-w-xl">
+        <div className="max-w-md mx-auto glass-card overflow-hidden md:max-w-lg lg:max-w-xl">
           <div className="h-[28rem] md:h-[32rem] lg:h-[36rem] overflow-y-auto p-4 space-y-4">
             <AnimatePresence>
               {messages.map((message, index) => (
@@ -105,10 +105,10 @@ export function ContactSection() {
                   transition={{ duration: 0.3 }}
                   className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  <div className={`max-w-[80%] p-3 rounded-lg ${
+                  <div className={`max-w-[80%] p-3 rounded-lg shadow-md ${
                     message.type === 'user' 
                       ? 'bg-orange-500 text-white dark:bg-green-500 dark:text-navy-900' 
-                      : 'bg-gray-200 text-gray-800 dark:bg-navy-700 dark:text-green-400'
+                      : 'bg-white/20 text-gray-900 dark:bg-white/10 dark:text-green-300'
                   }`}>
                     {message.content}
                   </div>
@@ -122,21 +122,21 @@ export function ContactSection() {
                 exit={{ opacity: 0 }}
                 className="flex justify-start"
               >
-                <div className="bg-gray-200 text-gray-800 dark:bg-navy-700 dark:text-green-400 p-3 rounded-lg">
-                  <Loader2 className="w-5 h-5 animate-spin" />
+                <div className="bg-white/20 dark:bg-white/10 p-3 rounded-lg">
+                  <Loader2 className="w-5 h-5 animate-spin text-gray-800 dark:text-green-300" />
                 </div>
               </motion.div>
             )}
             <div ref={messagesEndRef} />
           </div>
-          <div className="p-4 bg-gray-100 dark:bg-navy-900">
+          <div className="p-4 bg-black/10 border-t border-white/20">
             <div className="flex space-x-2">
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Type your message..."
-                className="flex-grow bg-white text-gray-800 border-gray-300 dark:bg-navy-800 dark:text-green-400 dark:border-green-500"
+                className="flex-grow bg-transparent border-none text-white placeholder:text-green-300 focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-orange-500 dark:focus-visible:ring-green-500"
               />
               <Button 
                 onClick={handleSend} 
@@ -171,4 +171,3 @@ export function ContactSection() {
     </section>
   )
 }
-

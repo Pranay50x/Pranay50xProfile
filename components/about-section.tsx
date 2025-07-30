@@ -19,7 +19,7 @@ export function AboutSection() {
   ]
 
   return (
-    <div className='bg-gray-50 dark:bg-navy-900'>
+    <div className='bg-transparent'>
     <section id="about" className="container mx-auto px-4 py-16">
       <motion.h2 
         className="text-3xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-500 dark:to-rose-600"
@@ -69,8 +69,7 @@ export function AboutSection() {
             {skillItems.map((item, index) => (
               <motion.div 
                 key={item.label}
-                className="p-4 bg-white dark:bg-gray-800 rounded-lg cursor-pointer transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 shadow-md"
-                whileHover="hover"
+className="glass-card p-4 cursor-pointer transition-all duration-300"                whileHover="hover"
                 onHoverStart={() => setActiveIcon(item.label)}
                 onHoverEnd={() => setActiveIcon(null)}
                 onClick={() => setActiveIcon(activeIcon === item.label ? null : item.label)}

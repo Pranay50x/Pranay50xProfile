@@ -35,7 +35,7 @@ export default function ToolsSection() {
   }, [])
 
   return (
-    <section id="tools" className="bg-gray-50 dark:bg-navy-900">
+    <section id="tools" className="bg-transparent">
       <div className="container mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-600 dark:from-orange-500 dark:to-rose-600">
           Tools & Technologies
@@ -50,7 +50,8 @@ export default function ToolsSection() {
               transition={{ duration: 0.3 }}
               className="w-full max-w-sm"
             >
-              <Card className="overflow-hidden bg-white dark:bg-navy-800 shadow-lg transition-shadow duration-300 hover:shadow-xl dark:hover:shadow-2xl">
+              <Card     className="glass-card overflow-hidden"
+>
                 <CardContent className="p-6 flex flex-col items-center">
                   {React.createElement(tools[currentIndex].icon, { 
                     className: `text-6xl ${tools[currentIndex].color} mb-4` 
